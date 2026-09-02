@@ -1,0 +1,22 @@
+# The Scoop bucket.
+#
+# Nothing is built here. The manifest is the whole product, and a manifest that
+# is not valid JSON is a broken `scoop install` for every customer on Windows.
+
+image: node:22-alpine
+
+pipelines:
+  default:
+    - step:
+        name: every manifest is valid JSON and names a download
+        script:
+          - |
+            set -eu
+            for f in bucket/*.json; do
+              node -e "
+                const m = require('./$f');
+                if (!m.version) throw new Error('$f has no version');
+                if (!m.architecture && !m.url) throw new Error('$f has no download');
+                console.log('$f ok, version ' + m.version);
+              "
+            done
