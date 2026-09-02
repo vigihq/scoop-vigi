@@ -1,0 +1,34 @@
+version: 0.2
+
+# The Scoop bucket.
+#
+# The manifest is the whole product, and one that is not valid JSON is a broken
+# `scoop install` for every customer on Windows.
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+
+  build:
+    commands:
+      - |
+        set -eu
+        for f in bucket/*.json; do
+          node -e "
+            const m = require('./$f');
+            if (!m.version) throw new Error('$f has no version');
+            if (!m.architecture && !m.url) throw new Error('$f has no download');
+            console.log('$f ok, version ' + m.version);
+          "
+        done
+      # Every download the manifest names must be real, for the same reason the
+      # tap checks its own: a bad url here is a failed install for a customer.
+      - |
+        set -eu
+        urls=$(grep -oE 'https://[^"]+' bucket/*.json | sed 's/^[^:]*://' | sort -u)
+        for u in $urls; do
+          code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 30 "$u")
+          echo "$code  $u"
+          test "$code" = "200" || { echo "that download is not there"; exit 1; }
+        done
