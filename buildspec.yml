@@ -24,11 +24,17 @@ phases:
         done
       # Every download the manifest names must be real, for the same reason the
       # tap checks its own: a bad url here is a failed install for a customer.
+      #
+      # -h keeps grep from putting the filename in front of every hit. With it
+      # there, cutting the filename off cut "https:" off with it and every
+      # address went out as "//vigihq.com". The autoupdate block holds the
+      # address of the NEXT release with $version still in it, so that one is
+      # not a download yet and is skipped.
       - |
         set -eu
-        urls=$(grep -oE 'https://[^"]+' bucket/*.json | sed 's/^[^:]*://' | sort -u)
+        urls=$(grep -h -oE 'https://[^"]+' bucket/*.json | grep -v '\$version' | sort -u)
         for u in $urls; do
-          code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 30 "$u")
+          code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 30 "${u%%#*}")
           echo "$code  $u"
           test "$code" = "200" || { echo "that download is not there"; exit 1; }
         done

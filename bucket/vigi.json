@@ -11,8 +11,8 @@
   },
   "bin": "vigi.exe",
   "checkver": {
-    "url": "https://vigihq.com/dl/latest/releases.json",
-    "jsonpath": "$.items[0]._vigi.version"
+    "url": "https://vigihq.com/dl/latest/releases.xml",
+    "regex": "<vigi:version>([\\d.]+)</vigi:version>"
   },
   "autoupdate": {
     "architecture": {
