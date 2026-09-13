@@ -6,11 +6,11 @@
   "architecture": {
     "64bit": {
       "url": "https://vigihq.com/dl/v0.1.49/vigi-windows-amd64.exe#/vigi.exe",
-      "hash": "38a78c42415d6558295c991d5f37e95df776dd00873735fec3d9b93e92f684a7"
+      "hash": "779f3c0d51b341f28e5648c6060c50f20cae13f74c790688e951b2279c66bd97"
     },
     "arm64": {
       "url": "https://vigihq.com/dl/v0.1.49/vigi-windows-arm64.exe#/vigi.exe",
-      "hash": "28944a19fb0f79aa4ec7bf9d9d2c3101ea17abdc364606d940e5c5a65394fec0"
+      "hash": "261bd643b87ae885209fd5ea40cd7d01d707efb5e3c357cdcee42f47b9149da8"
     }
   },
   "bin": "vigi.exe"
