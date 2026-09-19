@@ -1,16 +1,16 @@
 {
-  "version": "0.1.52",
+  "version": "0.2.0",
   "description": "Catch supply-chain attacks. One binary, no agent, no cloud.",
   "homepage": "https://vigihq.com",
   "license": "Commercial",
   "architecture": {
     "64bit": {
-      "url": "https://vigihq.com/dl/v0.1.52/vigi-windows-amd64.exe#/vigi.exe",
-      "hash": "c72f2cf33d484930a5a4654ba1965a89d9dff499c2dc92f4ec02a19854f6d732"
+      "url": "https://vigihq.com/dl/v0.2.0/vigi-windows-amd64.exe#/vigi.exe",
+      "hash": "5bf0b92600b8ab9aa0bbc0aae482b643fdadba80260f5d5a61d8b2271072ab04"
     },
     "arm64": {
-      "url": "https://vigihq.com/dl/v0.1.52/vigi-windows-arm64.exe#/vigi.exe",
-      "hash": "bc564404cc52194873af71ac34670158b4b1d4c30117cf74233babac8289d874"
+      "url": "https://vigihq.com/dl/v0.2.0/vigi-windows-arm64.exe#/vigi.exe",
+      "hash": "59f519ac65eda0045ecb92bbc2debb91571acae6ab5f428e58642b4bd0e86398"
     }
   },
   "bin": "vigi.exe"
