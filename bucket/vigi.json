@@ -1,17 +1,21 @@
 {
-  "version": "0.2.5",
+  "version": "1.0.0",
   "description": "Catch supply-chain attacks. One binary, no agent, no cloud.",
   "homepage": "https://vigihq.com",
   "license": "Commercial",
   "architecture": {
     "64bit": {
-      "url": "https://vigihq.com/dl/v0.2.5/vigi-windows-amd64.exe#/vigi.exe",
-      "hash": "042fa2048133d4336c9e0d9318dba08ecb4365929232c0dfb94f5af5ae26530c"
+      "url": "https://vigihq.com/dl/v1.0.0/vigi-windows-amd64.exe#/vigi.exe",
+      "hash": "1b86ac2760bd5e60ed2ac05c40c90e611cf1aa086b284a86434cc338fe2cfe34"
     },
     "arm64": {
-      "url": "https://vigihq.com/dl/v0.2.5/vigi-windows-arm64.exe#/vigi.exe",
-      "hash": "207e59a83c7a473a93ab41e4aba8f3e22144677674e96193292e7efad638b3b6"
+      "url": "https://vigihq.com/dl/v1.0.0/vigi-windows-arm64.exe#/vigi.exe",
+      "hash": "aeb43dedeb76342f23bc37bee172aa9faf246c444756c229344903dbb0f4be17"
     }
   },
-  "bin": "vigi.exe"
+  "bin": "vigi.exe",
+  "notes": [
+    "Vigilance is installed but not started. To start it, run:",
+    "  vigi"
+  ]
 }
